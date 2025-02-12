@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+/* Clases para los diferentes estados de vencimiento */
+.vencido {
+    background-color: #ffcccc;
+    border: 1px solid #ff9999;
+}
+
+.rojo {
+    background-color: #ffe6e6;
+    border: 1px solid #ffcccc;
+}
+
+.amarillo {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+}
+
+.verde {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+li.vencido {
+    color: gray;
+}
+li.proximo {
+    color: red;
+}
+li.medio {
+    color: yellow;
+}
+li.lejano {
+    color: green;
+} 

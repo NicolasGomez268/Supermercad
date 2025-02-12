@@ -1,0 +1,48 @@
+{% load static %}
+{% load vencimiento_filters %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos Próximos a Vencer</title>
+    <link rel="stylesheet" href="{% static 'productos/css/styles.css' %}?v=4">
+</head>
+<body>
+    <a href="{% url 'agregar_producto' %}" class="boton-volver">Volver</a>
+    <h1>Productos Próximos a Vencer</h1>
+    
+    <div class="leyenda-colores">
+        <div class="leyenda-item">
+            <span class="circulo-color circulo-gris"></span>
+            <span>Vencido</span>
+        </div>
+        <div class="leyenda-item">
+            <span class="circulo-color circulo-rojo"></span>
+            <span>Vence en 1-15 días</span>
+        </div>
+        <div class="leyenda-item">
+            <span class="circulo-color circulo-amarillo"></span>
+            <span>Vence en 16-29 días</span>
+        </div>
+        <div class="leyenda-item">
+            <span class="circulo-color circulo-verde"></span>
+            <span>Vence en 30+ días</span>
+        </div>
+    </div>
+
+    <div class="tabla-productos">
+        <div class="encabezado">
+            <div class="columna">Nombre</div>
+            <div class="columna">Fecha de Vencimiento</div>
+            <div class="columna">Código de Barra</div>
+        </div>
+        {% for producto in productos %}
+            <div class="fila {{ producto|vencimiento_class }}">
+                <div class="columna">{{ producto.nombre_producto }}</div>
+                <div class="columna">{{ producto.fecha_vencimiento }}</div>
+                <div class="columna">{{ producto.codigo_barra }}</div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html> 
