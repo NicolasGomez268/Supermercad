@@ -23,6 +23,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
+    - name: Create .env file
+      run: |
+        echo "SECRET_KEY=your-secret-key-here" > .env
+        echo "DEBUG=False" >> .env
+        
+    - name: Make migrations
+      run: |
+        python manage.py makemigrations
+        python manage.py migrate --noinput
+        
     - name: Collect Static Files
       run: |
         python manage.py collectstatic --noinput
