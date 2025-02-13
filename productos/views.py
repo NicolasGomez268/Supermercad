@@ -42,4 +42,7 @@ def productos_proximos(request):
     return render(request, 'productos/productos_proximos.html', {'productos': productos})
 
 def home(request):
+    return render(request, 'productos/guardar_productos.html')
+
+def tu_vista(request):
     return render(request, 'productos/guardar_productos.html') 
