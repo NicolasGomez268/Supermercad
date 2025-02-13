@@ -39,4 +39,7 @@ def productos_proximos(request):
         elif filtro == 'verde':
             productos = productos.filter(fecha_vencimiento__gte=hoy + timedelta(days=30))
 
-    return render(request, 'productos/productos_proximos.html', {'productos': productos}) 
+    return render(request, 'productos/productos_proximos.html', {'productos': productos})
+
+def home(request):
+    return render(request, 'productos/guardar_productos.html') 
