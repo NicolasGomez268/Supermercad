@@ -19,11 +19,11 @@ DATABASES = {
 # Clave de seguridad
 SECRET_KEY = 'django-insecure-your-secret-key-here'
 
-# Modo de depuración
-DEBUG = True
+# Modo de depuración (Debe estar en False en producción)
+DEBUG = False  # Cambia a True si estás desarrollando localmente
 
-# Hosts permitidos
-ALLOWED_HOSTS = ['NicolasTp.pythonanywhere.com']
+# Hosts permitidos (agrega más si lo necesitas)
+ALLOWED_HOSTS = ['NicolasTp.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 # Aplicaciones instaladas
 INSTALLED_APPS = [
@@ -52,25 +52,20 @@ MIDDLEWARE = [
 # Configuración de archivos estáticos
 STATIC_URL = '/static/'
 
+# Directorios donde buscar archivos estáticos
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'productos/static'),  # Accede directamente a la subcarpeta correcta
+    os.path.join(BASE_DIR, 'productos/static'),  # Asegura que sea la ruta correcta
 ]
 
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
-
-# Excluir archivos innecesarios como admin, vendor, etc.
-WHITENOISE_KEEP_ONLY_STATICFILES = True
+# Carpeta donde Django recopila todos los archivos estáticos para producción
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Configuración de almacenamiento de archivos estáticos
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Evita errores si falta algún archivo en el manifest
-WHITENOISE_MANIFEST_STRICT = False
-
-# Configuración de archivos de medios
+# Configuración de archivos de medios (para imágenes, videos, etc.)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configuración de internacionalización
 LANGUAGE_CODE = 'es-ar'
