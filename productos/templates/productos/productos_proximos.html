@@ -5,29 +5,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Productos Próximos a Vencer</title>
-    <link rel="stylesheet" href="{% static 'productos/css/styles.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'productos/css/styles.css' %}">
+    <script src="{% static 'productos/js/scripts.js' %}"></script>
 </head>
 <body>
     <a href="{% url 'agregar_producto' %}" class="boton-volver">Volver</a>
     <h1>Productos Próximos a Vencer</h1>
-    
     <div class="leyenda-colores">
-        <div class="leyenda-item">
-            <span class="circulo-color circulo-gris"></span>
-            <span>Vencido</span>
-        </div>
-        <div class="leyenda-item">
-            <span class="circulo-color circulo-rojo"></span>
-            <span>Vence en 1-15 días</span>
-        </div>
-        <div class="leyenda-item">
-            <span class="circulo-color circulo-amarillo"></span>
-            <span>Vence en 16-29 días</span>
-        </div>
-        <div class="leyenda-item">
-            <span class="circulo-color circulo-verde"></span>
-            <span>Vence en 30+ días</span>
-        </div>
+        <button class="boton-filtro gris" onclick="filtrarProductos('vencido')">Vencido</button>
+        <button class="boton-filtro rojo" onclick="filtrarProductos('rojo')">Próximo (0-15 días)</button>
+        <button class="boton-filtro amarillo" onclick="filtrarProductos('amarillo')">Medio (16-29 días)</button>
+        <button class="boton-filtro verde" onclick="filtrarProductos('verde')">Lejano (30+ días)</button>
+        <button class="boton-filtro todos" onclick="filtrarProductos('')">Todos</button>
     </div>
 
     <div class="tabla-productos">
@@ -36,13 +25,17 @@
             <div class="columna">Fecha de Vencimiento</div>
             <div class="columna">Código de Barra</div>
         </div>
-        {% for producto in productos %}
-            <div class="fila {{ producto|vencimiento_class }}">
-                <div class="columna">{{ producto.nombre_producto }}</div>
-                <div class="columna">{{ producto.fecha_vencimiento }}</div>
-                <div class="columna">{{ producto.codigo_barra }}</div>
-            </div>
-        {% endfor %}
+        <ul id="lista-productos">
+            {% for producto in productos %}
+                <li class="{{ producto|vencimiento_class }}">
+                    <div class="fila">
+                        <div class="columna">{{ producto.nombre_producto }}</div>
+                        <div class="columna">{{ producto.fecha_vencimiento }}</div>
+                        <div class="columna">{{ producto.codigo_barra }}</div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html> 

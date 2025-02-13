@@ -3,11 +3,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>HOLA Carlos, este es el formulario para agregar productos</title>
-    <link rel="stylesheet" href="{% static 'productos/css/styles.css' %}?v=4">
+    <title>Hola Carlos, este es el formulario para agregar productos</title>
+    <link rel="stylesheet" href="{% static 'productos/css/styles.css' %}">
 </head>
 <body>
-    <h1>HOLA Carlos, este es el formulario para agregar productos</h1>
+    <h1>Hola Carlos, este es el formulario para agregar productos</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
     <div class="formulario-container">
         <form method="post" class="formulario">
             {% csrf_token %}

@@ -53,8 +53,8 @@ h1 {
 
 /* Estados de vencimiento con colores actualizados */
 .vencido {
-    background-color: #666666;  /* Gris para productos vencidos */
-    color: #cccccc;  /* Texto más claro */
+    background-color: #444444;  /* Fondo más oscuro */
+    color: white;  /* Texto blanco para mejor contraste */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
@@ -240,4 +240,42 @@ li.lejano {
     background-color: #0052a3;  /* Azul más oscuro al hover */
     transform: translateY(-2px);
     box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.boton-filtro {
+    padding: 15px 30px; /* Aumentar el tamaño del botón */
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px; /* Aumentar el tamaño de la fuente */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.boton-filtro:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.boton-filtro.gris {
+    background-color: gray;
+}
+
+.boton-filtro.rojo {
+    background-color: #ff4d4d;
+}
+
+.boton-filtro.amarillo {
+    background-color: #ffcc00;
+    color: black; /* Para mejor visibilidad */
+}
+
+.boton-filtro.verde {
+    background-color: #4CAF50;
+}
+
+.boton-filtro.todos {
+    background-color: #007BFF;
 } 

@@ -7,10 +7,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'supermercado',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
+        'NAME': 'NicolasTp$Supermercado',
+        'USER': 'NicolasTp',
+        'PASSWORD': 'Eureka00+',
+        'HOST': 'NicolasTp.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
